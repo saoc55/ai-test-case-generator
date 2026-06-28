@@ -4,7 +4,7 @@ import os
 
 load_dotenv()
 
-def get_llm(model: str = None, temperature: float = 0.2):
+def get_llm(model=None, temperature=0):
 
     """
     Returns a LangChain-wrapped Claude model.
@@ -19,7 +19,7 @@ def get_llm(model: str = None, temperature: float = 0.2):
 
     model = model or os.getenv("LLM_MODEL", "claude_haiku-4-5")
     return ChatAnthropic(
-        model = model,
-        temperature = temperature,
-        api_key = os.getenv("ANTRHOPIC_API_KEY")
+        model=model,
+        temperature=temperature,
+        api_key=os.getenv("ANTHROPIC_API_KEY")  # ← correct spelling
     )
